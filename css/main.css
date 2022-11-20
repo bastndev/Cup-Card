@@ -1,0 +1,75 @@
+*,*::before, *::after {box-sizing: border-box;}
+
+html,body{
+    margin: 0;
+    height: 100%;
+}
+
+body{
+    background: #1b1c23;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+}
+/* Design - diseño */
+.card
+{
+    position: relative;
+    width: 400px;
+    height: 220px;
+    transform-style: preserve-3d;
+}
+.card .face
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backface-visibility: hidden;
+    transition: 2s ease-in-out;
+    border-radius: 15px;
+    transform: perspective(500px)rotateY(0deg);
+    cursor: pointer;
+    
+}
+/* Card Animation */
+.card .face.front
+{
+    background: rgba(255,255,255, 0.1);
+    border: 1px solid rgba(255,255,255,0.5);
+}
+
+.card:hover .face.front
+{
+    transform: perspective(500px)rotateY(180deg);
+    
+}
+/* Back */
+.card .face.back
+{
+    background: rgba(255,255,255, 0.1);
+    border: 1px solid rgba(255,255,255,0.5);
+    color: #fff;
+    transform: perspective(500px)rotateY(180deg);
+}
+.card:hover .face.back
+{
+    transform: perspective(500px)rotateY(360deg);
+}
+/* Text or img Animation */
+img{
+    width: 85%;
+}
+.card .face img
+{
+    font-size: -10em;
+    text-transform: uppercase;
+    transform: perspective(500px) translateZ(50px);
+}
